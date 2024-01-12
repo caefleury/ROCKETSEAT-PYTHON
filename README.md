@@ -1,4 +1,4 @@
-# ROCKETSEAT-PYTHON
+# Rocketseat - Aulas de Python
 Respositório com os trabalhos do curso de python da rocketsea
 
 ## Desafio 1 - Gerenciamento de Contatos
