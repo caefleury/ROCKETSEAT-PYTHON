@@ -12,7 +12,7 @@ Nesse desafio desenvolveremos uma agenda para salvar, editar, deletar e marcar u
     - Nome
     - Telefone
     - Email
-    - Favorito (está opção é para poder marcar um contato como favorito)
+    - Favorito 
 - Deve ser possível visualizar a lista de contatos cadastrados
 - Deve ser possível editar um contato
 - Deve ser possível marcar/desmarcar um contato como favorito
