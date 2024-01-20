@@ -1,3 +1,23 @@
+#Classes e objetos:
+
+# Classe pessoa
+# def fora de uma classe é função
+# def dentro de uma classe é método
+# self é o this do python
+class Pessoa: 
+    def __init__(self,nome,idade) -> None:
+        self.nome = nome
+        self.idade = idade
+
+    def saudacao(self):
+        print(f'Olá, meu nome é {self.nome} e eu tenho {self.idade} anos')
+        return
+
+#Objeto pessoa1
+pessoa1 = Pessoa('João', 20)
+mensagem = pessoa1.saudacao()
+
+#-------------------------------------------------------------#
 # Herança e Polimorfismo
 
 class Animal:
@@ -32,7 +52,7 @@ animais = [dog,cat]
 for animal in animais:
     print(f"{animal.nome} emite o som: {animal.emitir_som()}")
 
-
+#-------------------------------------------------------------#
 # Encapsulamento
 # Permite que certas informações sejam protegidas 
 class ContaBancaria:
@@ -50,5 +70,21 @@ class ContaBancaria:
 
     def consulta_saldo(self,valor):
         return self.__saldo
-
+    
+#-------------------------------------------------------------#
 # Abstração
+# Classes abastratas são os moldes para outras classes
+    
+from abc import ABC, abstractmethod
+
+class Veiculo(ABC):
+
+    # A classe derivada dessa classe abstrata DEVERÁ definir 
+    # as classes abstratas
+    @abstractmethod
+    def ligar(self):
+        pass
+
+    @abstractmethod
+    def desligar(self):
+        pass
