@@ -35,3 +35,5 @@ normais e especiais para atacar
 ataques normais para atacar
 - Cada turno o heroi e o inimigo atacam
 - O jogo acaba quando o herói ou o inimigo ficarem sem pontos de vida
+
+# Trabalho 1 - API em Flask
