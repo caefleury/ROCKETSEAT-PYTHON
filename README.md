@@ -20,7 +20,7 @@ Nesse desafio desenvolveremos uma agenda para salvar, editar, deletar e marcar u
 - Deve ser possível apagar um contato
 
 ## Trabalho 1 - Jogo de combate em turnos (POO)
-O objetivo do trabalho é estudar na prática como funciona o POO em python.
+O objetivo do trabalho é estudar na prática como funciona a programação orientada a objetos em python.
 Este projeto consiste em criar um jogo de batalha em python onde o jogador 
 controla um herói e enfrenta um inimigo em uma batalha com turnos turnos. 
 O objetivo é derrotar os inimigos e vencer a batalha usando ataques normais 
@@ -32,7 +32,7 @@ e/ou especiais. O jogo apresentará dois personagens por partida. O trabalho dev
 - O herói deve ter um nome, pontos de vida, nível e pode utilizar ataques 
 normais e especiais para atacar o inimigo
 - O inimigo também deve ter nome, pontos de vida, nível, tipo e pode utilizar 
-ataques normais para atacar
+ataques normais para atacar o herói
 - Em cada turno o heroi e o inimigo atacam
 - O jogo acaba quando o herói ou o inimigo ficam sem pontos de vida
 
