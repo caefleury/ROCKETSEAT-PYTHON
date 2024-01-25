@@ -48,9 +48,31 @@ class Enemy(Character):
         return f"{super().show_details()}\nTipo: {self.get_type()}"
 
 
-heroi = Hero(name='Sergio Sacani', life=100,
-             level=164, special_attack="Foguetes")
-print(heroi.show_details())
+# heroi = Hero(name='Sergio Sacani', life=100,
+#              level=164, special_attack="Foguetes")
+# print(heroi.show_details())
 
-enemy = Enemy(name='Terraplanista genérico', life=60, level=230, type='Burro')
-print(enemy.show_details())
+# enemy = Enemy(name='Terraplanista genérico', life=60, level=230, type='Burro')
+# print(enemy.show_details())
+
+class Game:
+    def __init__(self) -> None:
+        self.hero = Hero(name='Sergio Sacani', life=100, level=164, special_attack="Foguetes")
+        self.enemy = Enemy(name='Terraplanista genérico', life=60, level=230, type='Burro')
+
+    def start_battle(self):
+        """ Gestão de batalhas em turnos """
+        print("Iniciando batalha")
+        while self.hero.get_life() > 0 and self.enemy.get_life() > 0:
+            print("Detalhes dos personagens")
+            print("Detalhes do heroi")
+            print(self.hero.show_details())
+            print("Detalhes do inimigo ")
+            print(self.enemy.show_details())
+
+            input("Pressione Enter para atacar....")
+            escolha = input("Escolha (1 -  Ataque Normal, 2 - Ataque especial): ")
+
+#Criar instância do jogo e inciar batalha
+jogo = Game()
+jogo.start_battle()
