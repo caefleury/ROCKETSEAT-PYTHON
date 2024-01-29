@@ -1,5 +1,5 @@
 import pytest
-from main import Character, Hero, Enemy
+from characters import Character, Hero, Enemy
 
 
 def test_character_details():
