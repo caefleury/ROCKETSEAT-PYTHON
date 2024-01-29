@@ -1,4 +1,3 @@
-import pytest
 from characters import Character, Hero, Enemy
 
 
