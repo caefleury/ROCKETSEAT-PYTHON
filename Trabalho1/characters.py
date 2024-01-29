@@ -1,5 +1,6 @@
-from typing import Any
+
 import random
+
 
 class Character:
     def __init__(self, name, life, level) -> None:
@@ -17,19 +18,21 @@ class Character:
         return self.__level
 
     def show_details(self):
-        return f"Nome: {self.get_name()}\nVida: {self.get_life()}\nNível: {self.get_level()}"
-    
-    def attack(self,target):
-        damage = self.__level * random.randint(1,3)
-        target.receive_attack(damage)
-        print(f"\n{self.get_name()} atacou {target.get_name()} e causou {damage} de dano")
+        return f"Nome: {self.get_name()}\nVida: {self.get_life()}\nNível: {self.get_level()}"  # noqa
 
-    def special_attack(self,target):
-        damage = self.__level * random.randint(5,7)
+    def attack(self, target):
+        damage = self.__level * random.randint(1, 3)
         target.receive_attack(damage)
-        print(f"\n{self.get_name()} atacou {target.get_name()} com um ataque espcial e causou {damage} de dano")
+        print(
+            f"\n{self.get_name()} atacou {target.get_name()} e causou {damage} de dano")  # noqa
 
-    def receive_attack(self,damage):
+    def special_attack(self, target):
+        damage = self.__level * random.randint(5, 7)
+        target.receive_attack(damage)
+        print(
+            f"\n{self.get_name()} atacou {target.get_name()} com um ataque espcial e causou {damage} de dano")  # noqa
+
+    def receive_attack(self, damage):
         self.__life -= damage
         if self.__life < 0:
             self.__life = 0
@@ -44,7 +47,7 @@ class Hero(Character):
         return self.__special_attack
 
     def show_details(self):
-        return f"{super().show_details()}\nHabilidade: {self.get_special_attack()}"
+        return f"{super().show_details()}\nHabilidade: {self.get_special_attack()}"  # noqa
 
 
 class Enemy(Character):
@@ -57,4 +60,3 @@ class Enemy(Character):
 
     def show_details(self):
         return f"{super().show_details()}\nTipo: {self.get_type()}"
-    

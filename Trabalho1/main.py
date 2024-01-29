@@ -2,13 +2,15 @@
 # Heroi: controlado pelo usuário
 # Adversário: controlado pelo usúario
 
-from typing import Any
-from characters import Character, Hero, Enemy
+from characters import Hero, Enemy
+
 
 class Game:
     def __init__(self) -> None:
-        self.hero = Hero(name='Sergio Sacani', life=100, level=5, special_attack="Foguetes")
-        self.enemy = Enemy(name='Terraplanista genérico', life=80, level=3, type='Burro')
+        self.hero = Hero(name='Sergio Sacani', life=100,
+                         level=5, special_attack="Foguetes")
+        self.enemy = Enemy(name='Terraplanista genérico',
+                           life=80, level=3, type='Burro')
 
     def start_battle(self):
         """ Gestão de batalhas em turnos """
@@ -21,7 +23,7 @@ class Game:
             print(self.enemy.show_details())
 
             input("Pressione Enter para atacar....")
-            choice = input("Escolha (1 -  Ataque Normal, 2 - Ataque especial): ")
+            choice = input("Escolha (1 - Ataque Normal, 2 - Ataque especial):")
 
             if choice == '1':
                 self.hero.attack(self.enemy)
@@ -29,7 +31,7 @@ class Game:
                 self.hero.special_attack(self.enemy)
             else:
                 print("Escolha invalida, escolha novamente")
-        
+
             if self.enemy.get_life() > 0:
                 self.enemy.attack(self.hero)
 
@@ -38,6 +40,6 @@ class Game:
         else:
             print("Que pena, o inimigo venceu a batalha")
 
-#Criar instância do jogo e inciar batalha
+
 jogo = Game()
 jogo.start_battle()

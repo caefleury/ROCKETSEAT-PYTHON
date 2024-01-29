@@ -66,7 +66,6 @@ for animal in animais:
 # Encapsulamento
 # Permite que certas informações sejam protegidas
 
-
 class ContaBancaria:
     def __init__(self, saldo):
         self.__saldo = saldo  # Atributo privado
