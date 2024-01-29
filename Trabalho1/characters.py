@@ -20,12 +20,12 @@ class Character:
         return f"Nome: {self.get_name()}\nVida: {self.get_life()}\nNível: {self.get_level()}"
     
     def attack(self,target):
-        damage = self.__level * 2
+        damage = self.__level * random.randint(1,3)
         target.receive_attack(damage)
         print(f"\n{self.get_name()} atacou {target.get_name()} e causou {damage} de dano")
 
     def special_attack(self,target):
-        damage = self.__level * 5
+        damage = self.__level * random.randint(5,7)
         target.receive_attack(damage)
         print(f"\n{self.get_name()} atacou {target.get_name()} com um ataque espcial e causou {damage} de dano")
 

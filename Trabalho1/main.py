@@ -8,7 +8,7 @@ from characters import Character, Hero, Enemy
 class Game:
     def __init__(self) -> None:
         self.hero = Hero(name='Sergio Sacani', life=100, level=5, special_attack="Foguetes")
-        self.enemy = Enemy(name='Terraplanista genérico', life=60, level=3, type='Burro')
+        self.enemy = Enemy(name='Terraplanista genérico', life=80, level=3, type='Burro')
 
     def start_battle(self):
         """ Gestão de batalhas em turnos """
