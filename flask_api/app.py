@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify
 from flask_swagger_ui import get_swaggerui_blueprint
+from models.task import Task
 
 app = Flask(__name__)
 
@@ -26,14 +27,46 @@ swaggerui_blueprint = get_swaggerui_blueprint(
 
 app.register_blueprint(swaggerui_blueprint)
 
+tasks = []
+task_id_control = 1
 
 @app.route("/")
 def hello_world():
     return "Hello, World!"
 
-@app.route("/about")
-def about():
-    return "Página Sobre"
+@app.route("/tasks", methods=["POST"])
+def create_task():
+    global task_id_control
+    data = request.get_json()
+    new_task = Task(id=task_id_control, title=data["title"], description=data["description"])
+    task_id_control += 1
+    tasks.append(new_task)
+    print(tasks)
+    return jsonify({"message": "Task created successfully"})
+
+@app.route("/tasks", methods=["GET"])
+def get_tasks():
+    all_tasks = [task.to_dict() for task in tasks]
+    output = {
+        'total_tasks': len(all_tasks),
+        'tasks': all_tasks,
+    }
+    return jsonify(output)
+
+@app.route("/tasks/<int:id>", methods=["GET"])
+def get_task_by_id(id):
+    for task in tasks:
+       if task.id == id:
+           return jsonify(task.to_dict())
+    return jsonify({"message": "Task not found"})
+
+@app.route("/tasks/<int:id>", methods=["DELETE"])
+def delete_task(id):
+    for task in tasks:
+        if task.id == id:
+            tasks.remove(task)
+            return jsonify({"message": "Task deleted successfully"})
+    return jsonify({"message": "Task not found"})
 
 if __name__ == '__main__':
   app.run(debug=True)
