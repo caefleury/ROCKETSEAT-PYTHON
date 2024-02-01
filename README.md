@@ -2,7 +2,7 @@
 
 Este repositório contém os trabalhos do curso de Python da Rocketseat.
 
-## Desafio 1 - Gerenciamento de Contatos
+## Trabalho 1 - Gerenciamento de Contatos
 
 Neste desafio, desenvolvemos uma agenda para salvar, editar, deletar e marcar um contato como favorito. O resultado da aplicação é apresentado no terminal, conforme visto no módulo "Introdução ao Python".
 
@@ -20,7 +20,7 @@ Neste desafio, desenvolvemos uma agenda para salvar, editar, deletar e marcar um
 - É possível ver uma lista de contatos favoritos.
 - É possível apagar um contato.
 
-## Trabalho 1 - Jogo de Combate em Turnos (POO)
+## Projeto 1 - Jogo de Combate em Turnos (POO)
 
 O objetivo deste trabalho é estudar na prática como funciona a programação orientada a objetos em Python. Este projeto consiste em criar um jogo de batalha em Python, onde o jogador controla um herói e enfrenta um inimigo em uma batalha com turnos. O objetivo é derrotar os inimigos e vencer a batalha usando ataques normais e/ou especiais. O jogo apresentará dois personagens por partida. O trabalho deve conter os princípios de POO.
 
@@ -33,5 +33,6 @@ O objetivo deste trabalho é estudar na prática como funciona a programação o
 - Em cada turno, o herói e o inimigo atacam.
 - O jogo acaba quando o herói ou o inimigo ficam sem pontos de vida.
 
-## Trabalho 1 - API em Flask
-
+## Trabalho 2 - API em Flask
+Neste trabalho faremos uso da framework Flask para criar a API de uma to-do list. Utilizaremos Swagger para a 
+documentação. 
