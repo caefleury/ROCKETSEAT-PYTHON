@@ -66,7 +66,18 @@ def delete_task(id):
         if task.id == id:
             tasks.remove(task)
             return jsonify({"message": "Task deleted successfully"})
-    return jsonify({"message": "Task not found"})
+    return jsonify({"message": "Task not found"}), 404
+
+@app.route("/tasks/<int:id>", methods=["PUT"])
+def updato_task(id):
+    data = request.get_json()
+    for task in tasks:
+        if task.id == id:
+            task.title = data["title"]
+            task.description = data["description"]
+            task.completed = data["completed"]
+            return jsonify({"message": "Task updated successfully"})
+    return jsonify({"message": "Task not found"}), 404
 
 if __name__ == '__main__':
   app.run(debug=True)
