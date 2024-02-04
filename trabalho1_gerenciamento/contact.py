@@ -11,28 +11,6 @@ class Contact:
         __favorite (bool): The favorite status of the contact.
         __data (dict): A dictionary containing contact information.
 
-    Methods:
-        __init__(name, telephone, email, favorite):
-            Initializes a new Contact instance 
-            with the given parameters.
-
-        get_all_contacts():
-            Prints information for all contacts.
-
-        get_all_favorite_contacts():
-            Prints information for all favorite contacts.
-
-        update_name(name):
-            Updates the name of the contact.
-
-        update_telephone(telephone):
-            Updates the telephone number of the contact.
-
-        update_email(email):
-            Updates the email address of the contact.
-
-        update_favorite(favorite):
-            Updates the favorite status of the contact.
     """
 
     __instances = []
@@ -59,31 +37,53 @@ class Contact:
             if instance['favorite'] == True:
                 print(instance)
 
-    def update_name(self, name):
-        self.__name = name
-        self.__data['name'] = self.__name
-    
-    def update_telephone(self, telephone):
-        self.__telephone = telephone
-        self.__data['telephone'] = self.__telephone
-    
-    def update_email(self, email):
-        self.__email = email
-        self.__data['email'] = self.__email
-    
-    def update_favorite(self, favorite):
-        self.__favorite = favorite
-        self.__data['favorite'] = self.__favorite
-    
     @classmethod
-    def delete_contact(cls,data):
+    def delete_contact(cls,email):
         """
         Deletes the contact instance.
         """
-        Contact.__instances.remove(data)
+        for instance in cls.__instances:
+            if instance['email'] == email:
+                data = {
+                    'name' : instance['name'], 
+                    'telephone' : instance['telephone'], 
+                    'email' : instance['email'], 
+                    'favorite' : instance['favorite']
+                }
+                Contact.__instances.remove(data)
         print("Contact deleted successfully.")
     
+    @classmethod
+    def find_contact_by_email(cls,email):
+        for instance in cls.__instances:
+            if instance['email'] == email:
+                return instance
+        
+    @classmethod
+    def update_name(cls, email, new_name):
+        contact = cls.find_contact_by_email(email)
+        contact['name'] = new_name
+        print("Name updated successfully.")
+    
+    @classmethod
+    def update_telephone(cls, email, new_telephone):
+        contact = cls.find_contact_by_email(email)
+        contact['telephone'] = new_telephone
+        print("Telephone updated successfully.")
 
+    @classmethod
+    def update_email(cls, email, new_email):
+        contact = cls.find_contact_by_email(email)
+        contact['email'] = new_email
+        print("Email updated successfully.")
+    
+    @classmethod
+    def update_favorite(cls, email, new_favorite):
+        contact = cls.find_contact_by_email(email)
+        contact['favorite'] = new_favorite
+        print("Favorite status updated successfully.")
+    
+    
 contato1 = Contact('Sergio','(11) 99999-9999','sergio@email.com',True)
 contato2 = Contact('João','(11) 99999-9999', 'joao@email.com',False)
 
