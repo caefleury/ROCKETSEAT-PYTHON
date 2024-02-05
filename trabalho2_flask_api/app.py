@@ -4,7 +4,6 @@ from models.task import Task
 
 app = Flask(__name__)
 
-
 SWAGGER_URL = '/api/docs'  # URL for exposing Swagger UI (without trailing '/')
 API_URL = '/static/swagger.yaml'  # Our API url (can of course be a local resource)
 

@@ -4,3 +4,4 @@ Flask-Cors==3.0.10
 Werkzeug==2.3.8
 flask-swagger-ui==4.11.1
 pytest==7.4.3
+python-dotenv
