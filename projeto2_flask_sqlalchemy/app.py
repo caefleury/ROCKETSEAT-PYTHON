@@ -13,9 +13,11 @@ app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 db = SQLAlchemy(app)
 
-@app.route('/users', methods=['GET']) 
+
+@app.route('/users', methods=['GET'])
 def hello():
-    return jsonify({'message': 'Hello, World!'})  
+    return jsonify({'message': 'Hello, World!'})
+
 
 if __name__ == '__main__':
     app.run(debug=True)
