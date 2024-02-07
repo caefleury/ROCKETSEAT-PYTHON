@@ -40,6 +40,20 @@ def logout():
     logout_user()
     return jsonify({"message":"Usuário deslogado com sucesso"})
 
+@app.route("/user",methods=["POST"])
+def create_user():
+    data = request.json
+    username = data.get("username")
+    email = data.get("email")
+    password = data.get("password")
+    
+    if username and password and email:
+        user = User(username=username,email=email,password=password)
+        db.session.add(user)
+        db.session.commit()
+        return jsonify({"message","Usuário logado com sucesso"})
+    
+    return jsonify({"message","Dados inválidos"}),400
 
 if __name__ == '__main__':
     app.run(debug=True)
