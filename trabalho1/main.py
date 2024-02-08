@@ -1,5 +1,6 @@
 from contact import Contact
 
+
 class ContactManager:
     def __init__(self) -> None:
         pass
@@ -21,9 +22,10 @@ class ContactManager:
                 name = input("Digite o nome do contato: ")
                 telephone = input("Digite o telefone do contato: ")
                 email = input("Digite o email do contato: ")
-                favorite = input("Digite se o contato é favorito (True/False): ")
+                favorite = input(
+                    "Digite se o contato é favorito (True/False): ")
                 try:
-                    contact = Contact(name,telephone,email,favorite)
+                    contact = Contact(name, telephone, email, favorite)
                     print("\nContato criado com sucesso")
                 except:
                     print("Erro ao criar contato")
@@ -33,8 +35,9 @@ class ContactManager:
             elif choice == '3':
                 print("\nListando contatos favoritos")
                 Contact.get_all_favorite_contacts()
-            elif choice=='4':
-                email = input("\nIndique o email do contato que deseja deletar: ")
+            elif choice == '4':
+                email = input(
+                    "\nIndique o email do contato que deseja deletar: ")
                 Contact.delete_contact(email)
             elif choice == '5':
                 print("Indique o email do contato que você gostaria de editar:")
@@ -47,17 +50,18 @@ class ContactManager:
                 choice = input("Escolha: ")
                 if choice == '1':
                     name = input("Digite o novo nome: ")
-                    Contact.update_name(email,name)
+                    Contact.update_name(email, name)
                 elif choice == '2':
                     telephone = input("Digite o novo telefone: ")
-                    Contact.update_telephone(email,telephone)
+                    Contact.update_telephone(email, telephone)
                 elif choice == '3':
                     new_email = input("Digite o novo email: ")
-                    Contact.update_email(email,new_email)
+                    Contact.update_email(email, new_email)
                 elif choice == '4':
-                    favorite = input("Digite se o contato é favorito (True/False): ")
-                    Contact.update_favorite(email,favorite)
-                
-            
+                    favorite = input(
+                        "Digite se o contato é favorito (True/False): ")
+                    Contact.update_favorite(email, favorite)
+
+
 manager = ContactManager()
 manager.start_manager()
