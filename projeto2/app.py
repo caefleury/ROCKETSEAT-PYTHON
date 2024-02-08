@@ -48,10 +48,17 @@ def create_user():
     password = data.get("password")
     
     if username and password and email:
+        find_user_by_username = User.query.filter_by(username=username).first()
+        find_user_by_email = User.query.filter_by(email=email).first()
+        if find_user_by_username:
+            return jsonify({"message":"Esse nome de usuário já existe"}), 400
+        elif find_user_by_email:
+            return jsonify({"message":"Esse email já está sendo utilizado por outro usuário"}), 400
+
         user = User(username=username,email=email,password=password)
         db.session.add(user)
         db.session.commit()
-        return jsonify({"message","Usuário logado com sucesso"})
+        return jsonify({"message":"Usuário criado com sucesso"}), 200
     
     return jsonify({"message","Dados inválidos"}),400
 
