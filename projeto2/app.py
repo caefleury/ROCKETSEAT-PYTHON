@@ -58,7 +58,7 @@ def create_user():
         elif find_user_by_email:
             return jsonify({"message": "Esse email já está sendo utilizado por outro usuário"}), 409
 
-        user = User(username=username, email=email, password=password)
+        user = User(username=username, email=email, password=password, role="user")
         db.session.add(user)
         db.session.commit()
         return jsonify({"message": "Usuário criado com sucesso"}), 200
@@ -81,6 +81,10 @@ def update_user(id_user):
     user = User.query.filter_by(id=id_user).first()
     data = request.json
     password = data.get("password")
+
+    if id_user != current_user.id and current_user.role != "admin":
+        return jsonify({"message": "Você não tem permissão para alterar esse usuário"}), 403
+    
     if user and password:
         user.password = password
         db.session.commit()
@@ -94,6 +98,9 @@ def update_user(id_user):
 def delete_user(id_user):
     user = User.query.filter_by(id=id_user).first()
 
+    if current_user.role != "admin":
+        return jsonify({"message": "Você não tem permissão para deletar um usuário"}), 403
+    
     if id_user == current_user.id:
         return jsonify({"message": "Não é possível deletar o usuário logado"}), 403
 
