@@ -6,6 +6,8 @@ flask-swagger-ui>=4.11.1
 flask-login>=0.6.3
 pytest>=7.4.3
 python-dotenv>=1.0.1
+pymysql
+cryptography
 
 # yse `pip show <package-name>` to show current package details and version
 # use `pip freeze > requirements.txt` to add current packages do requirements.txt
