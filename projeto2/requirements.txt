@@ -8,6 +8,6 @@ pytest>=7.4.3
 python-dotenv>=1.0.1
 pymysql
 cryptography
-
+bcrypt
 # yse `pip show <package-name>` to show current package details and version
 # use `pip freeze > requirements.txt` to add current packages do requirements.txt
